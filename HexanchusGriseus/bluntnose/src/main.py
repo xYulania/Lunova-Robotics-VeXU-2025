@@ -9,10 +9,18 @@
 
 from vex import *
 
+# t 20 front left 
+# Port 19 bottom left 
+# Port 18 top left 
+
+# Port 17 front right 
+# Port 15 bottom right 
+# Port 16 top right 
+
 brain = Brain()
 controller = Controller()
 
-intake = Motor(Ports.PORT9, GearSetting.RATIO_18_1, False)
+intake = Motor(Ports.PORT9, GearSetting.RATIO_18_1, True)
 intake.set_velocity(200, RPM)
 
 frontIntake = Motor(Ports.PORT10, GearSetting.RATIO_18_1, False)
@@ -20,21 +28,21 @@ frontIntake.set_velocity(200, RPM)
 
 allIntakes = MotorGroup(intake, frontIntake)
 
-frontRightMotor = Motor(Ports.PORT12, GearSetting.RATIO_18_1, False)
-backRightMotor = Motor(Ports.PORT11, GearSetting.RATIO_18_1, False)
+frontRightMotor = Motor(Ports.PORT17, GearSetting.RATIO_18_1, False)
+backRightMotor = Motor(Ports.PORT15, GearSetting.RATIO_18_1, False)
 
 frontLeftMotor = Motor(Ports.PORT20, GearSetting.RATIO_18_1, True)
 backLeftMotor = Motor(Ports.PORT19, GearSetting.RATIO_18_1, True)
 
-rightGears = MotorGroup(frontRightMotor, backRightMotor)
-leftGears = MotorGroup(frontLeftMotor, backLeftMotor)
+TopRightMotor = Motor(Ports.PORT16, GearSetting.RATIO_18_1, True)
+TopLeftMotor = Motor(Ports.PORT18, GearSetting.RATIO_18_1, False)
 
-allGears = MotorGroup(frontRightMotor, backRightMotor, frontLeftMotor, backLeftMotor)
+rightGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor)
+leftGears = MotorGroup(frontLeftMotor, backLeftMotor, TopLeftMotor)
 
-digOut = DigitalOut(brain.three_wire_port.g)
-digOut.set(True)
+allGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor, frontLeftMotor, backLeftMotor, TopLeftMotor)
 
-digOutFront = DigitalOut(brain.three_wire_port.h)
+digOutFront = DigitalOut(brain.three_wire_port.a)
 digOutFront.set(False)
 
 
@@ -105,36 +113,21 @@ def userControl():
         brain.screen.print("Left Speed: {:.2f} RPM".format(leftGears.velocity(RPM)))
         brain.screen.set_cursor(2, 1)
         brain.screen.print("Right Speed: {:.2f} RPM".format(rightGears.velocity(RPM)))
-
-        # Handle arrow left press for toggling digOut
-        if controller.buttonUp.pressing() and not buttonUpState:  # Detect a new press
-            digOutState = not digOutState  # Toggle the pneumatic state
-            digOut.set(digOutState)  # Apply the toggle to the pneumatic system
-            if digOutState:
-                brain.screen.set_cursor(3, 1)
-                brain.screen.print("Pneumatic Opened")
-            else:
-                brain.screen.set_cursor(3, 1)
-                brain.screen.print("Pneumatic Closed")
-            buttonUpState = True  # Mark the button as pressed
-
-        if not controller.buttonUp.pressing():
-            buttonUpState = False  # Reset the button state when released
         
-
-        if controller.buttonDown.pressing() and not buttonDownState:
-            digOutFrontState = not digOutFrontState
-            digOutFront.set(digOutFrontState)
+        # Handle arrow left press for toggling digOut
+        if controller.buttonDown.pressing() and not buttonDownState:        # Detect a new press
+            digOutFrontState = not digOutFrontState     # Toggle the pneumatic state
+            digOutFront.set(digOutFrontState)       # Apply the toggle to the pneumatic system
             if digOutFrontState:
                 brain.screen.set_cursor(4, 1)
                 brain.screen.print("Pneumatic Opened")
             else:
                 brain.screen.set_cursor(4, 1)
                 brain.screen.print("Pneumatic Closed")
-            buttonDownState = True
+            buttonDownState = True      # Mark the button as pressed
         
         if not controller.buttonDown.pressing():
-            buttonDownState = False
+            buttonDownState = False     # Reset the button state when released
 
 
         maxIntakeAllRPM = 200
@@ -160,10 +153,3 @@ brain.screen.clear_screen()
                                                             ######### ARCHIVE #########
 
 
-# rightGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor)
-# leftGears = MotorGroup(frontLeftMotor, backLeftMotor, TopLeftMotor)
-
-# TopRightMotor = Motor(Ports.PORT8, GearSetting.RATIO_18_1, True)
-# TopLeftMotor = Motor(Ports.PORT18, GearSetting.RATIO_18_1, False)
-
-# allGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor, frontLeftMotor, backLeftMotor, TopLeftMotor)
