@@ -42,13 +42,36 @@ def autonomous():
     brain.screen.clear_screen()
     brain.screen.print("autonomous code")
     while True:
-        # rightGears.spin(FORWARD, 50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(.8, SECONDS)
 
+        # testing time -------
         # rightGears.spin(FORWARD, 50, PERCENT)
         # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(1, SECONDS)
+        # wait(5 ,SECONDS)
+
+        rightGears.spin(FORWARD, 50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(2.6, SECONDS)
+
+        rightGears.spin(FORWARD, -50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(1.1, SECONDS)
+
+        rightGears.spin(FORWARD, 50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(2.7, SECONDS)
+
+        rightGears.spin(FORWARD, -50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(.9, SECONDS)
+        
+        rightGears.spin(FORWARD, 50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(2, SECONDS)
+
+        rightGears.spin(FORWARD, -50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(2.6, SECONDS)
+
         wait(20, MSEC)
 
 
