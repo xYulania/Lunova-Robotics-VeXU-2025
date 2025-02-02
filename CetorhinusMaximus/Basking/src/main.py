@@ -20,11 +20,11 @@ frontIntake.set_velocity(200, RPM)
 
 allIntakes = MotorGroup(intake, frontIntake)
 
-frontRightMotor = Motor(Ports.PORT12, GearSetting.RATIO_18_1, False)
-backRightMotor = Motor(Ports.PORT11, GearSetting.RATIO_18_1, False)
+frontRightMotor = Motor(Ports.PORT12, GearSetting.RATIO_6_1, False)
+backRightMotor = Motor(Ports.PORT11, GearSetting.RATIO_6_1, False)
 
-frontLeftMotor = Motor(Ports.PORT20, GearSetting.RATIO_18_1, True)
-backLeftMotor = Motor(Ports.PORT19, GearSetting.RATIO_18_1, True)
+frontLeftMotor = Motor(Ports.PORT20, GearSetting.RATIO_6_1, True)
+backLeftMotor = Motor(Ports.PORT19, GearSetting.RATIO_6_1, True)
 
 rightGears = MotorGroup(frontRightMotor, backRightMotor)
 leftGears = MotorGroup(frontLeftMotor, backLeftMotor)
@@ -43,38 +43,62 @@ def autonomous():
     brain.screen.print("autonomous code")
     while True:
 
-        # testing time -------
-        rightGears.spin(FORWARD, 75, PERCENT)
-        leftGears.spin(FORWARD, 75, PERCENT)
-        wait(2.3 ,SECONDS)
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(.45, SECONDS)
+        
+        rightGears.spin(REVERSE, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(.85, SECONDS)
+
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(1.15, SECONDS)
+
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(REVERSE, 25, PERCENT)
+        wait(.9, SECONDS)
+
+        rightGears.spin(REVERSE, 25, PERCENT)
+        leftGears.spin(REVERSE, 25, PERCENT)
+        wait(.1, SECONDS)
+
+        intake.spin(FORWARD, 100, PERCENT)
+        wait(.5, SECONDS)
+
+        intake.spin(FORWARD, 0, PERCENT)
+        wait(.5, SECONDS)
+
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(.45, SECONDS)
+
+        rightGears.spin(REVERSE, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(1.9, SECONDS)
+
+        digOutFront.set(True)
+        rightGears.spin(REVERSE, 25, PERCENT)
+        leftGears.spin(REVERSE, 25, PERCENT)
+        wait(.7, SECONDS)
+
+        digOutFront.set(False)
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(REVERSE, 25, PERCENT)
+        wait(.6, SECONDS)
+
+        allIntakes.spin(FORWARD, 100, PERCENT)
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(FORWARD, 25, PERCENT)
+        wait(.7, SECONDS)
 
         rightGears.spin(FORWARD, 0, PERCENT)
         leftGears.spin(FORWARD, 0, PERCENT)
-        wait(20, SECONDS)
+        wait(1, SECONDS)
 
-        # rightGears.spin(FORWARD, 50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(2.6, SECONDS)
-
-        # rightGears.spin(FORWARD, -50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(1.1, SECONDS)
-
-        # rightGears.spin(FORWARD, 50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(2.7, SECONDS)
-
-        # rightGears.spin(FORWARD, -50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(.9, SECONDS)
-        
-        # rightGears.spin(FORWARD, 50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(2, SECONDS)
-
-        # rightGears.spin(FORWARD, -50, PERCENT)
-        # leftGears.spin(FORWARD, 50, PERCENT)
-        # wait(2.6, SECONDS)
+        rightGears.spin(FORWARD, 0, PERCENT)
+        leftGears.spin(FORWARD, 0, PERCENT)
+        wait(5, SECONDS)
 
         wait(20, MSEC)
 
@@ -90,7 +114,7 @@ def userControl():
 
     while True:
 
-        maxRPM = 200
+        maxRPM = 450
         ForwardBackwardJS = (controller.axis3.position() / 100) * maxRPM
         turningJS = (controller.axis1.position() / 100) * maxRPM
 
@@ -167,3 +191,55 @@ brain.screen.clear_screen()
 # TopLeftMotor = Motor(Ports.PORT18, GearSetting.RATIO_18_1, False)
 
 # allGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor, frontLeftMotor, backLeftMotor, TopLeftMotor)
+
+
+
+
+        # rightGears.spin(FORWARD, 50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(2.6, SECONDS)
+
+        # rightGears.spin(FORWARD, -50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(1.1, SECONDS)
+
+        # rightGears.spin(FORWARD, 50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(2.7, SECONDS)
+
+        # rightGears.spin(FORWARD, -50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(.9, SECONDS)
+        
+        # rightGears.spin(FORWARD, 50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(2, SECONDS)
+
+        # rightGears.spin(FORWARD, -50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(2.6, SECONDS)
+
+
+
+
+
+
+        # rightGears.spin(FORWARD, 50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(.8, SECONDS)
+        # # testing time -------
+        # # rightGears.spin(REVERSE, 25, PERCENT)
+        # # leftGears.spin(REVERSE, 25, PERCENT)
+        # # wait(.35 ,SECONDS)
+        
+        # # rightGears.spin(FORWARD, 0, PERCENT)
+        # # leftGears.spin(FORWARD, 0, PERCENT)
+        # # wait(.5, SECONDS)
+
+        # # rightGears.spin(REVERSE, 45, PERCENT)
+        # # leftGears.spin(FORWARD, 45, PERCENT)
+        # # wait(.45, SECONDS)
+
+        # # rightGears.spin(FORWARD, 50, PERCENT)
+        # # leftGears.spin(FORWARD, 50, PERCENT)
+        # # wait(.6, SECONDS)
