@@ -45,26 +45,50 @@ def autonomous():
 
         rightGears.spin(FORWARD, 25, PERCENT)
         leftGears.spin(FORWARD, 25, PERCENT)
-        wait(.45, SECONDS)
-        
+        wait(.38, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
         rightGears.spin(REVERSE, 25, PERCENT)
         leftGears.spin(FORWARD, 25, PERCENT)
         wait(.85, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         rightGears.spin(FORWARD, 25, PERCENT)
         leftGears.spin(FORWARD, 25, PERCENT)
         wait(1.15, SECONDS)
 
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
         rightGears.spin(FORWARD, 25, PERCENT)
         leftGears.spin(REVERSE, 25, PERCENT)
         wait(.9, SECONDS)
 
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
         rightGears.spin(REVERSE, 25, PERCENT)
         leftGears.spin(REVERSE, 25, PERCENT)
-        wait(.1, SECONDS)
+        wait(.4, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         intake.spin(FORWARD, 100, PERCENT)
         wait(.5, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         intake.spin(FORWARD, 0, PERCENT)
         wait(.5, SECONDS)
@@ -73,32 +97,147 @@ def autonomous():
         leftGears.spin(FORWARD, 25, PERCENT)
         wait(.45, SECONDS)
 
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
         rightGears.spin(REVERSE, 25, PERCENT)
         leftGears.spin(FORWARD, 25, PERCENT)
-        wait(1.9, SECONDS)
+        wait(2, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         digOutFront.set(True)
         rightGears.spin(REVERSE, 25, PERCENT)
         leftGears.spin(REVERSE, 25, PERCENT)
-        wait(.7, SECONDS)
+        wait(.9, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         digOutFront.set(False)
         rightGears.spin(FORWARD, 25, PERCENT)
         leftGears.spin(REVERSE, 25, PERCENT)
         wait(.6, SECONDS)
 
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
         allIntakes.spin(FORWARD, 100, PERCENT)
         rightGears.spin(FORWARD, 25, PERCENT)
         leftGears.spin(FORWARD, 25, PERCENT)
-        wait(.7, SECONDS)
+        wait(.9, SECONDS)
+
+        # allIntakes.spin(FORWARD, 0, PERCENT)
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
 
         rightGears.spin(FORWARD, 0, PERCENT)
         leftGears.spin(FORWARD, 0, PERCENT)
         wait(1, SECONDS)
+        
+        rightGears.spin(FORWARD, 25, PERCENT)
+        leftGears.spin(REVERSE, 25, PERCENT)
+        wait(.44, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(.4, SECONDS)
+
+        allIntakes.spin(FORWARD, 100, PERCENT)
+        rightGears.spin(FORWARD, 50, PERCENT)
+        leftGears.spin(FORWARD, 50, PERCENT)
+        wait(1.5, SECONDS)
 
         rightGears.spin(FORWARD, 0, PERCENT)
         leftGears.spin(FORWARD, 0, PERCENT)
         wait(5, SECONDS)
+
+
+
+
+
+        # # FORWARD A BIT FOR EASY TURNING
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(.3, SECONDS)
+        
+        # # TURN RIGHT AND FACE THE RINGS
+        # rightGears.spin(REVERSE, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(.85, SECONDS)
+
+        # # FORWARD AND PUSH DOWN THE RINGS
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(1.15, SECONDS)
+
+        # # TURN 180 AND FACE THE MOBILE GOAL
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(REVERSE, 25, PERCENT)
+        # wait(.9, SECONDS)
+
+        # # REVERSE TO ALLIANCE STAKE
+        # rightGears.spin(REVERSE, 25, PERCENT)
+        # leftGears.spin(REVERSE, 25, PERCENT)
+        # wait(.1, SECONDS)
+
+        # # SCORE THE RING THATS ALREADY ON THERE
+        # intake.spin(FORWARD, 100, PERCENT)
+        # wait(.5, SECONDS)
+
+        # # STOP THE INTAKE
+        # intake.spin(FORWARD, 0, PERCENT)
+        # wait(.5, SECONDS)
+
+        # FORWARD TO 
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(.45, SECONDS)
+
+        # rightGears.spin(REVERSE, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(1.9, SECONDS)
+
+        # digOutFront.set(True)
+        # rightGears.spin(REVERSE, 25, PERCENT)
+        # leftGears.spin(REVERSE, 25, PERCENT)
+        # wait(.9, SECONDS)
+
+        # digOutFront.set(False)
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(REVERSE, 25, PERCENT)
+        # wait(.6, SECONDS)
+
+        # allIntakes.spin(FORWARD, 100, PERCENT)
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(FORWARD, 25, PERCENT)
+        # wait(.9, SECONDS)
+
+        # # rightGears.spin(FORWARD, 0, PERCENT)
+        # # leftGears.spin(FORWARD, 0, PERCENT)
+        # # wait(1, SECONDS)
+        
+        # rightGears.spin(FORWARD, 25, PERCENT)
+        # leftGears.spin(REVERSE, 25, PERCENT)
+        # wait(.6, SECONDS)
+
+        # allIntakes.spin(REVERSE, 100, PERCENT)
+        # wait(.6, SECONDS)
+
+        # allIntakes.spin(FORWARD, 100, PERCENT)
+        # rightGears.spin(FORWARD, 50, PERCENT)
+        # leftGears.spin(FORWARD, 50, PERCENT)
+        # wait(1.5, SECONDS)
+
+        # rightGears.spin(FORWARD, 0, PERCENT)
+        # leftGears.spin(FORWARD, 0, PERCENT)
+        # wait(5, SECONDS)
 
         wait(20, MSEC)
 
