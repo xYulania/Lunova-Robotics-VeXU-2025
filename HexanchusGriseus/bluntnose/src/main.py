@@ -20,21 +20,21 @@ from vex import *
 brain = Brain()
 controller = Controller()
 
-intake = Motor(Ports.PORT9, GearSetting.RATIO_18_1, False)
+intake = Motor(Ports.PORT10, GearSetting.RATIO_18_1, False)
 intake.set_velocity(200, RPM)
 
-frontIntake = Motor(Ports.PORT10, GearSetting.RATIO_6_1, False)
+frontIntake = Motor(Ports.PORT1, GearSetting.RATIO_6_1, False)
 frontIntake.set_velocity(200, RPM)
 
 allIntakes = MotorGroup(intake, frontIntake)
 
-frontRightMotor = Motor(Ports.PORT17, GearSetting.RATIO_6_1, False)
+frontRightMotor = Motor(Ports.PORT20, GearSetting.RATIO_6_1, False)
 backRightMotor = Motor(Ports.PORT15, GearSetting.RATIO_6_1, False)
 
-frontLeftMotor = Motor(Ports.PORT20, GearSetting.RATIO_6_1, True)
+frontLeftMotor = Motor(Ports.PORT11, GearSetting.RATIO_6_1, True)
 backLeftMotor = Motor(Ports.PORT19, GearSetting.RATIO_6_1, True)
 
-TopRightMotor = Motor(Ports.PORT16, GearSetting.RATIO_6_1, True)
+TopRightMotor = Motor(Ports.PORT18, GearSetting.RATIO_6_1, True)
 TopLeftMotor = Motor(Ports.PORT18, GearSetting.RATIO_6_1, False)
 
 rightGears = MotorGroup(frontRightMotor, backRightMotor, TopRightMotor)
@@ -102,7 +102,7 @@ def userControl():
 
     while True:
 
-        maxRPM = 350
+        maxRPM = 300
         ForwardBackwardJS = (controller.axis3.position() / 100) * maxRPM
         turningJS = (controller.axis1.position() / 100) * maxRPM
 
@@ -133,8 +133,8 @@ def userControl():
         if not controller.buttonDown.pressing():
             buttonDownState = False     # Reset the button state when released
 
-        maxIntakeRPM = 200
-        maxFrontIntakeRPM = 500
+        maxIntakeRPM = 100
+        maxFrontIntakeRPM = 300
         intakeInOutAll = (controller.buttonL1.pressing() - controller.buttonR1.pressing()) * maxFrontIntakeRPM 
         intakeInOut = (controller.buttonL2.pressing() - controller.buttonR2.pressing()) * maxIntakeRPM
         if intakeInOutAll != 0:
