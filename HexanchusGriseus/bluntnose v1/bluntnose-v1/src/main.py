@@ -1,12 +1,3 @@
-# ---------------------------------------------------------------------------- #
-#                                                                              #
-# 	Module:       Basking Main Code                                            #
-# 	Author:       Yulania                                                      #
-# 	Created:      1/4/2025, 6:19:05 PM                                         #
-# 	Description:  Default code for Basking VeXU Robot - Python                 #
-#                                                                              #
-# ---------------------------------------------------------------------------- #
-
 from vex import *
 
 brain = Brain()
@@ -46,7 +37,6 @@ def autonomous():
 
 
 def userControl():
-    pdSwitch = False
 
     brain.screen.clear_screen()
     brain.screen.print("driver control")
